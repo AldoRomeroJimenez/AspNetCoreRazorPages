@@ -1,0 +1,114 @@
+﻿@page
+@model AspNetCoreIdentity.Pages.Store.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Crear Nuevo</a>
+</p>
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tienda[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tienda[0].Contacto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tienda[0].Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tienda[0].Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tienda[0].CodigoPostal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tienda[0].Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tienda[0].Pais)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tienda[0].Telefono1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tienda[0].Telefono2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tienda[0].Almacen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tienda[0].Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tienda[0].Estatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tienda[0].RazonSocial)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Tienda) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contacto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoPostal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Almacen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RazonSocial)
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Acciones
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a asp-page="./Edit" class="dropdown-item" asp-route-id="@item.Id">Edit</a></li>
+                        <li><a asp-page="./Delete" class="dropdown-item" asp-route-id="@item.Id">Delete</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

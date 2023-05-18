@@ -1,0 +1,64 @@
+﻿@page
+@model AspNetCoreIdentity.Areas.RH.Pages.SubDepartment.DeleteModel
+@{
+    ViewData["Tittle"] = "Eliminar Sub Departamento";
+}
+
+<h1>Eliminar</h1>
+
+<h3>¿Estas Seguro De Eliminar Este Departamento?</h3>
+
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>Propiedades</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.SubDepartamento.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.SubDepartamento.Id)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.SubDepartamento.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.SubDepartamento.Nombre)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.SubDepartamento.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.SubDepartamento.Descripcion)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.SubDepartamento.ClaveSubDepartamento)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.SubDepartamento.ClaveSubDepartamento)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.SubDepartamento.EmpleadoId)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.SubDepartamento.EmpleadoId)
+        </td>
+    </tr>
+</table>
+<p></p>
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" asp-for="SubDepartamento.Id" />
+    <input type="submit" value="Eliminar" class="btn btn-danger" />
+    <a class="btn btn-dark" asp-page="Index">Regresar</a>
+</form>

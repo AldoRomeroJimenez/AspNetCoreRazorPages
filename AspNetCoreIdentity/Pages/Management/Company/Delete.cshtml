@@ -1,0 +1,124 @@
+﻿@page
+@model AspNetCoreIdentity.Pages.Management.Company.DeleteModel
+
+@{
+    ViewData["Title"] = "Eliminar Compania";
+}
+
+<h1>Eliminar</h1>
+
+<h3>¿Estas Seguro De Eliminar Esta Empresa?</h3>
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>Propiedades</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empresa.RazonSocial)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empresa.RazonSocial)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empresa.RFC)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empresa.RFC)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empresa.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empresa.Email)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empresa.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empresa.Direccion)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empresa.CodigoPostal)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empresa.CodigoPostal)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empresa.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empresa.Estado)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empresa.Pais)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empresa.Pais)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empresa.FechaCreacion)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empresa.FechaCreacion)
+        </td>
+    </tr>   
+
+    <tr>
+        <th colspan="2">Datos Encargado</th>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empresa.Curp)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empresa.Curp)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empresa.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empresa.Nombre)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empresa.Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empresa.Apellido)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empresa.FechaNacimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empresa.FechaNacimiento)
+        </td>
+    </tr>
+</table>
+<p></p>
+<form method="post">
+    <input type="hidden" asp-for="Empresa.Id" />
+    <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+    <a asp-page="./Index">Regresar</a>
+</form>
+

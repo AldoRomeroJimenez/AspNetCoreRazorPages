@@ -1,0 +1,78 @@
+﻿@page
+@model AspNetCoreIdentity.Areas.RH.Pages.Department.CreateModel
+@{
+    ViewData["Tittle"] = "Crear Depto";
+}
+<div class="col-lg-10">
+    <div class="card shadow-lg border-0 rounded-lg mt-5">
+        <div class="card-header">
+            <h3 class="text-center font-weight-light my-4">Registrar Departamento</h3>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Departamento.Nombre" class="form-control" />
+                            <label asp-for="Departamento.Nombre" class="control-label"></label>
+                            <span asp-validation-for="Departamento.Nombre" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Departamento.Descripcion" class="form-control" />
+                            <label asp-for="Departamento.Descripcion" class="control-label"></label>
+                            <span asp-validation-for="Departamento.Descripcion" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Departamento.ClaveDepartamento" class="form-control" />
+                            <label asp-for="Departamento.ClaveDepartamento" class="control-label"></label>
+                            <span asp-validation-for="Departamento.ClaveDepartamento" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <select asp-for="Departamento.EmpleadoId" asp-items="Model.Empleados" class="form-control">
+                                <option value="0">Selecciona Encargado</option>
+                            </select>
+                            <label for="Em">Encargado</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Departamento.Fecha" class="form-control calendarFecha" id="fc2" maxlength="10" />
+                            <label for="fc2">Fecha Activacion</label>
+                            <span asp-validation-for="Departamento.Fecha" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 mb-0">
+                    <button type="submit" class="btn btn-primary">Guardar Departamento</button>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer text-center py-3">
+            <div class="align-content-lg-start">
+                <a class="btn btn-dark" asp-page="Index">Regresar</a>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>        
+        $(function () {
+            $('.calendarFecha').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                format: "dd/mm/yyyy",
+                language: "tr"
+            });
+        });
+    </script>
+}

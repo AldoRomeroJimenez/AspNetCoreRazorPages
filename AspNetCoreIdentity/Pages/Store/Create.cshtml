@@ -1,0 +1,94 @@
+﻿@page
+@model AspNetCoreIdentity.Pages.Store.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Tienda</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Tienda.Nombre" class="control-label"></label>
+                <input asp-for="Tienda.Nombre" class="form-control" />
+                <span asp-validation-for="Tienda.Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tienda.Contacto" class="control-label"></label>
+                <input asp-for="Tienda.Contacto" class="form-control" />
+                <span asp-validation-for="Tienda.Contacto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tienda.Descripcion" class="control-label"></label>
+                <input asp-for="Tienda.Descripcion" class="form-control" />
+                <span asp-validation-for="Tienda.Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tienda.Direccion" class="control-label"></label>
+                <input asp-for="Tienda.Direccion" class="form-control" />
+                <span asp-validation-for="Tienda.Direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tienda.CodigoPostal" class="control-label"></label>
+                <input asp-for="Tienda.CodigoPostal" class="form-control" />
+                <span asp-validation-for="Tienda.CodigoPostal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tienda.Estado" class="control-label"></label>
+                <input asp-for="Tienda.Estado" class="form-control" />
+                <span asp-validation-for="Tienda.Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tienda.Pais" class="control-label"></label>
+                <input asp-for="Tienda.Pais" class="form-control" />
+                <span asp-validation-for="Tienda.Pais" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tienda.Telefono1" class="control-label"></label>
+                <input asp-for="Tienda.Telefono1" class="form-control" />
+                <span asp-validation-for="Tienda.Telefono1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tienda.Telefono2" class="control-label"></label>
+                <input asp-for="Tienda.Telefono2" class="form-control" />
+                <span asp-validation-for="Tienda.Telefono2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tienda.Almacen" class="control-label"></label>
+                <input asp-for="Tienda.Almacen" class="form-control" />
+                <span asp-validation-for="Tienda.Almacen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tienda.Tipo" class="control-label"></label>
+                <input asp-for="Tienda.Tipo" class="form-control" />
+                <span asp-validation-for="Tienda.Tipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tienda.Estatus" class="control-label"></label>
+                <input asp-for="Tienda.Estatus" class="form-control" />
+                <span asp-validation-for="Tienda.Estatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tienda.RazonSocial" class="control-label"></label>
+                <input asp-for="Tienda.RazonSocial" class="form-control" />
+                <span asp-validation-for="Tienda.RazonSocial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

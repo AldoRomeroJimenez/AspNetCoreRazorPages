@@ -1,0 +1,55 @@
+﻿@page
+@model AspNetCoreIdentity.Pages.Management.Roles.IndexModel
+@{
+    ViewData["Title"] = "Roles";
+}
+<h1>Roles</h1>
+
+<p>
+    <a class="btn btn-primary" asp-page="Create">Crear Rol</a>
+</p>
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Roles[0].Id)
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Acciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Roles)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Acciones
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a asp-page="./Edit" class="dropdown-item" asp-route-id="@item.Id">Edit</a></li>
+                            <li><a asp-page="./Delete" class="dropdown-item" asp-route-id="@item.Id">Delete</a></li>
+                        </ul>
+                    </div>                     
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

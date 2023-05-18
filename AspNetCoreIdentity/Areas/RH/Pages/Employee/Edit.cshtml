@@ -1,0 +1,217 @@
+﻿@page
+@model AspNetCoreIdentity.Areas.RH.Pages.Employee.EditModel
+@{
+    ViewData["Title"] = "Registrar Empleado";
+}
+<div class="col-lg-10">
+    <div class="card shadow-lg border-0 rounded-lg mt-5">
+        <div class="card-header">
+            <h3 class="text-center font-weight-light my-4">Editar Empleado</h3>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <input type="hidden" asp-for="Empleado.Id" />
+                <input type="hidden" asp-for="Empleado.Estatus" />
+                <div class="row mb-3">
+                    <div class="col-md-2">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Empleado.Nomina" class="form-control" />
+                            <label asp-for="Empleado.Nomina" class="control-label"></label>
+                            <span asp-validation-for="Empleado.Nomina" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Empleado.Nombre" class="form-control" />
+                            <label asp-for="Empleado.Nombre" class="control-label"></label>
+                            <span asp-validation-for="Empleado.Nombre" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Empleado.ApellidoPaterno" class="form-control" />
+                            <label asp-for="Empleado.ApellidoPaterno" class="control-label"></label>
+                            <span asp-validation-for="Empleado.ApellidoPaterno" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Empleado.ApellidoMaterno" class="form-control" />
+                            <label asp-for="Empleado.ApellidoMaterno" class="control-label"></label>
+                            <span asp-validation-for="Empleado.ApellidoPaterno" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Empleado.FechaNacimiento" class="form-control calendarFecha" id="fc" maxlength="10" />
+                            <label for="fc">Fecha Nacimiento</label>
+                            <span asp-validation-for="Empleado.FechaNacimiento" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Empleado.RFC" class="form-control" maxlength="14" />
+                            <label asp-for="Empleado.RFC" class="control-label"></label>
+                            <span asp-validation-for="Empleado.RFC" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating">
+                            <input asp-for="Empleado.CURP" class="form-control" maxlength="19" />
+                            <label asp-for="Empleado.CURP" class="control-label"></label>
+                            <span asp-validation-for="Empleado.CURP" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating">
+                            <input asp-for="Empleado.NSS" class="form-control" maxlength="19" />
+                            <label asp-for="Empleado.NSS" class="control-label"></label>
+                            <span asp-validation-for="Empleado.NSS" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Empleado.FechaIngreso" class="form-control calendarFecha" id="fc2" maxlength="10" />
+                            <label for="fc2">Fecha Ingreso</label>
+                            <span asp-validation-for="Empleado.FechaIngreso" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Empleado.CorreoPersonal" class="form-control" />
+                            <label asp-for="Empleado.CorreoPersonal" class="control-label"></label>
+                            <span asp-validation-for="Empleado.CorreoPersonal" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Empleado.CorreoInstitucion" class="form-control" />
+                            <label asp-for="Empleado.CorreoInstitucion" class="control-label"></label>
+                            <span asp-validation-for="Empleado.CorreoInstitucion" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <select asp-for="Empleado.PuestoId" asp-items="Model.Puestos" class="form-control">
+                                <option value="0">Selecciona Puesto</option>
+                            </select>
+                            <label for="Em">Selecciona Puesto</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Empleado.Telefono" class="form-control" maxlength="14" />
+                            <label asp-for="Empleado.Telefono" class="control-label"></label>
+                            <span asp-validation-for="Empleado.Telefono" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Empleado.Direccion" class="form-control" />
+                            <label asp-for="Empleado.Direccion" class="control-label"></label>
+                            <span asp-validation-for="Empleado.Direccion" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-floating">
+                            <input asp-for="Empleado.CodigoPostal" class="form-control" maxlength="5" />
+                            <label asp-for="Empleado.CodigoPostal" class="control-label"></label>
+                            <span asp-validation-for="Empleado.CodigoPostal" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <select asp-for="PaisId" asp-items="Model.Paises" class="form-control">
+                                <option value="">Selecciona Pais</option>
+                            </select>
+                            <label for="Em">Selecciona Pais</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <select asp-for="EstadoId" asp-items="Model.Edos" class="form-control">
+                            </select>
+                            <label for="Em">Selecciona Estado</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <select asp-for="MunicipioId" asp-items="Model.Municipios" class="form-control">
+                            </select>
+                            <label for="Em">Selecciona Municipio</label>
+                        </div>
+                    </div>
+                </div>
+                @if (Model.Empleado.Estatus.Equals(0))
+                {
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <div class="form-floating mb-3 mb-md-0">
+                                <select asp-for="EstatusId" class="form-control">
+                                    <option value="1">Reactivar</option>
+                                    <option value="0">No</option>
+                                </select>
+                                <label for="Em">Activar</label>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="mt-4 mb-0">
+                    <button type="submit" class="btn btn-primary">Editar Empleado</button>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer text-center py-3">
+            <div class="align-content-lg-start">
+                <a class="btn btn-dark" asp-page="Index">Regresar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(function () {
+            $("#PaisId").on("change", function () {
+                var paisId = $(this).val();
+                $("#EstadoId").empty();
+                $("#EstadoId").append("<option value=''>Selecciona Estado</option>");
+                $.getJSON(`?handler=Estados&paisId=${paisId}`, (data) => {
+                    $.each(data, function (i, item) {
+                        $("#EstadoId").append(`<option value="${item.estadoId}">${item.descripcion}</option>`);
+                    });
+                });
+            });
+        });
+
+        $(function () {
+            $("#EstadoId").on("change", function () {
+                var estadoId = $(this).val();
+                $("#MunicipioId").empty();
+                $("#MunicipioId").append("<option value=''>Selecciona Municipio</option>");
+                $.getJSON(`?handler=Municipios&estadoId=${estadoId}`, (data) => {
+                    $.each(data, function (i, item) {
+                        $("#MunicipioId").append(`<option value="${item.municipioId}">${item.descripcion}</option>`);
+                    });
+                });
+            });
+        });
+
+        $(function () {
+            $('.calendarFecha').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                format: "dd/mm/yyyy",
+                language: "tr"
+            });
+        });
+    </script>
+}

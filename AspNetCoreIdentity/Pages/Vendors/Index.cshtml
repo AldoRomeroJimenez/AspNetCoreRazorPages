@@ -1,0 +1,110 @@
+﻿@page
+@model AspNetCoreIdentity.Pages.Vendors.IndexModel
+
+@{
+    ViewData["Title"] = "Proveedores";
+}
+
+<h1>Proveedores</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Agregar Nuevo</a>
+</p>
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedor[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedor[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedor[0].RFC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedor[0].Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedor[0].Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedor[0].Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedor[0].Municipio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedor[0].Cp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedor[0].Pais)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedor[0].Contacto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Proveedor[0].Estatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Proveedor)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RFC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Municipio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pais)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contacto)
+                </td>
+                <td>
+                    @if (item.Estatus.Equals(1))
+                    {
+                        <label>Activo</label>
+                    }
+                    else
+                    {
+                        <label>Baja</label>
+                    }
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Acciones
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a asp-page="./Edit" class="dropdown-item" asp-route-id="@item.Id">Edit</a></li>
+                            <li><a asp-page="./Delete" class="dropdown-item" asp-route-id="@item.Id">Delete</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

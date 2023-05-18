@@ -1,0 +1,120 @@
+﻿@page
+@model AspNetCoreIdentity.Pages.Management.Company.IndexModel
+
+@{
+    ViewData["Title"] = "Empresa(s)";
+}
+
+<h1>Inicio</h1>
+
+<p>
+    <a class="btn btn-primary" asp-page="Create">Agregar</a>
+</p>
+<div style="width:100%; height:600px; overflow-y: scroll;">
+    <table id="datatablesSimple">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Empresa[0].RazonSocial)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Empresa[0].RFC)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Empresa[0].Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Empresa[0].Direccion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Empresa[0].CodigoPostal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Empresa[0].Estado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Empresa[0].Pais)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Empresa[0].FechaCreacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Empresa[0].Moneda)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Empresa[0].Curp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Empresa[0].Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Empresa[0].Apellido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Empresa[0].FechaNacimiento)
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Empresa)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RazonSocial)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RFC)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Direccion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodigoPostal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Estado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Pais)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaCreacion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Moneda)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Curp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Apellido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                    </td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                Acciones
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a asp-page="./Edit" class="dropdown-item" asp-route-id="@item.Id">Edit</a></li>
+                                <li><a asp-page="./Delete" class="dropdown-item" asp-route-id="@item.Id">Delete</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

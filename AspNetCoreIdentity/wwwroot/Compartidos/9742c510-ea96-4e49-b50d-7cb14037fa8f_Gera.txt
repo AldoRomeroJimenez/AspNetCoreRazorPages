@@ -1,0 +1,37 @@
+1.- EnableEventValidation="false"
+2.- agregar el control con el panel
+			<asp:Button ID="btnShow" runat="server" Text="ShowCot" Style="display: none" />
+            <ajaxToolkit:ModalPopupExtender ID="mpeFormulario" BehaviorID="mpeFormulario" runat="server"
+                BackgroundCssClass="modalBackground" DropShadow="True" Enabled="True"
+                PopupControlID="pnlFormulario" TargetControlID="btnShow">
+            </ajaxToolkit:ModalPopupExtender>
+			<asp:Panel ID="pnlFormulario" runat="server" Style="width: 390px; display: none; background-color: White; z-index: 999">
+                <asp:Panel ID="panelHeader" runat="server" PopupDragHandleControlID="panelHeader"
+                    Style="background-color: #DDDDDD; border: solid 1px Gray; color: #00529B; padding: 3px;">
+                    <table border="0" cellpadding="0" cellspacing="0" style="width: 380px">
+                        <tr>
+                            <td>
+                                <asp:Label ID="lblFormHeader" runat="server" Style="font-size: 14px; font-variant: small-caps;"
+                                    Text=""></asp:Label></td>
+                            <td style="text-align: right; vertical-align: middle;">
+                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/images/close_16x16.png"
+                                    OnClientClick="closeFormulario(); return false;" ImageAlign="Bottom" /></td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+				
+				Aqui vas a diseñar el formulario
+			</asp:Panel>
+			
+3.- Funciones js
+		function openFormulario() {
+            RemueveEstiloHeader();
+            $find('mpeFormulario').show();
+        }
+        function closeFormulario() {
+            DevuelveEstiloHeader();
+            $find('mpeFormulario').hide();            
+        }
+4.- Ejecutar desde el codebehind en el evento del button de nuevo
+
+	UtileriasVarias.JScript(UpdatePanel1.Page, "openFormulario();", "ShowModalCotizacion", True)

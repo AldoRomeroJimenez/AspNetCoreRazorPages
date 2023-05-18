@@ -1,0 +1,82 @@
+﻿@page
+@model AspNetCoreIdentity.Areas.RH.Pages.Department.IndexModel
+@{
+    ViewData["Title"] = "Departamentos";
+}
+<h1>Departamentos</h1>
+<p>
+    <a asp-page="Create" class="btn btn-primary">Agregar Nuevo</a>
+    <a class="btn btn btn-secondary" asp-area="RH" asp-page="/SubDepartment/Index">Sub Departamentos</a>
+</p>
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Departamentos[0].Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departamentos[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departamentos[0].Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departamentos[0].ClaveDepartamento)
+            </th>
+            <th>Encargado</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departamentos[0].Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departamentos[0].Estatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Departamentos)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClaveDepartamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpleadoId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha)
+                </td>
+                <td>
+                    @if (item.Estatus.Equals(1))
+                    {
+                        <label>Activo</label>
+                    }
+                    else
+                    {
+                        <label>Baja</label>
+                    }
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Acciones
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a asp-page="./Edit" class="dropdown-item" asp-route-id="@item.Id">Edit</a></li>
+                            <li><a asp-page="./Delete" class="dropdown-item" asp-route-id="@item.Id">Delete</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

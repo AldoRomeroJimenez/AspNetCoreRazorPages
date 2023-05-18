@@ -1,0 +1,65 @@
+﻿@page
+@model AspNetCoreIdentity.Pages.Management.Users.DeleteModel
+@{
+    ViewData["Title"] = "Eliminar Usuario";
+}
+<h1>Eliminar</h1>
+
+<h3>¿Estas Seguro De Eliminar Este Usuario?</h3>
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>Propiedades</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Model.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Model.UserName)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Model.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Model.Name)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Model.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Model.LastName)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Model.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Model.Email)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Model.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Model.PhoneNumber)
+        </td>
+    </tr>
+</table>
+<p></p>
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" asp-for="Model.Id" />
+    @if (Model.AutoDelete)
+    {
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+    }
+    <a class="btn btn-dark" asp-page="Index">Regresar</a>
+</form>

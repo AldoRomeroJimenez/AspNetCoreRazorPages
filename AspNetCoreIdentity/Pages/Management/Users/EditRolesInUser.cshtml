@@ -1,0 +1,44 @@
+﻿@page
+@model AspNetCoreIdentity.Pages.Management.Users.EditRolesInUserModel
+@{
+}
+<form method="post">
+    <h2>Usuario : @Model.UserName</h2>
+    <div class="card mb-4">
+        <div class="card-header">
+            <h2>Agregar o eliminar Roles del Usuario</h2>
+        </div>
+        <div class="card-body">            
+        <table id="datatablesSimple">
+            
+            <thead>
+                <tr>
+                    <th>
+                        Roles del usuario
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Model.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            <input type="hidden" asp-for="Model[i].UserId" />
+                            <input type="hidden" asp-for="Model[i].RoleId" />
+                            <input type="hidden" asp-for="Model[i].RoleName" />
+                            <input asp-for="Model[i].IsSelected" class="form-check-input" />
+                            <label class="form-check-label"> @Model.Model[i].RoleName</label>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        </div>
+        <div>
+            <input type="submit" value="Actualizar" class="btn btn-primary" />
+            <a asp-page="Edit" asp-route-id="@Model.Model[0].UserId" class="btn btn-primary">Cancelar</a>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,61 @@
+﻿@page
+@model AspNetCoreIdentity.Pages.Management.Users.IndexModel
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+<h1>Usuarios</h1>
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuarios[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuarios[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuarios[0].UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuarios[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuarios[0].PhoneNumber)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Usuarios)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Acciones
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a asp-page="./Edit" class="dropdown-item" asp-route-id="@item.Id">Edit</a></li>
+                            <li><a asp-page="./Delete" class="dropdown-item" asp-route-id="@item.Id">Delete</a></li>                            
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

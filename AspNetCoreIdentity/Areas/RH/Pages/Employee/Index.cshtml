@@ -1,0 +1,114 @@
+﻿@page
+@model AspNetCoreIdentity.Areas.RH.Pages.Employee.IndexModel
+@{
+    ViewData["Title"] = "Empleados";    
+}
+<h1>Proveedores</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Agregar Nuevo</a>
+</p>
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].Nomina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].ApellidoPaterno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].ApellidoMaterno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].FechaNacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].RFC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].CURP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].NSS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].FechaIngreso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].CorreoPersonal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].CorreoInstitucion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].Estatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Empleado)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nomina)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApellidoPaterno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApellidoMaterno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RFC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CURP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NSS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaIngreso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CorreoPersonal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CorreoInstitucion)
+                </td>
+                <td>
+                    @if (item.Estatus.Equals(1))
+                    {
+                        <label>Activo</label>
+                    }
+                    else
+                    {
+                        <label>Baja</label>
+                    }
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Acciones
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a asp-page="./Edit" class="dropdown-item" asp-route-id="@item.Id">Edit</a></li>
+                            <li><a asp-page="./Delete" class="dropdown-item" asp-route-id="@item.Id">Delete</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

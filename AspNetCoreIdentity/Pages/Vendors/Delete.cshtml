@@ -1,0 +1,87 @@
+﻿@page
+@model AspNetCoreIdentity.Pages.Vendors.DeleteModel
+
+@{
+    ViewData["Title"] = "Eliminar Proveedor";
+}
+
+<h1>Eliminar</h1>
+
+<h3>¿Estas Seguro De Eliminar Este Proveedor?</h3>
+
+<table id="datatablesSimple">
+    <thead>
+        <tr>Propiedades</tr>
+    </thead>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Proveedor.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Proveedor.Nombre)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Proveedor.RFC)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Proveedor.RFC)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Proveedor.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Proveedor.Direccion)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Proveedor.Cp)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Proveedor.Cp)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Proveedor.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Proveedor.Estado)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Proveedor.Pais)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Proveedor.Pais)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Proveedor.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Proveedor.Telefono)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Proveedor.Contacto)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Proveedor.Contacto)
+        </td>
+    </tr>
+</table>
+<p></p>
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" asp-for="Proveedor.Id" />
+    <input type="submit" value="Eliminar" class="btn btn-danger" />
+    <a class="btn btn-dark" asp-page="Index">Regresar</a>
+</form>

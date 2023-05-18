@@ -1,0 +1,114 @@
+﻿@page
+@model AspNetCoreIdentity.Pages.Products.IndexModel
+
+@{
+    ViewData["Title"] = "Productos";
+}
+
+<h1>Productos</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Agregar Nuevo</a>
+</p>
+<table id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto[0].Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto[0].UM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto[0].Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto[0].CveProdServSAT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto[0].CveUnidadSAT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto[0].ProveedorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto[0].Costo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto[0].Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto[0].Margen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto[0].Codebar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto[0].Contenido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto[0].Estatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Producto) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CveProdServSAT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CveUnidadSAT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProveedorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Costo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Margen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codebar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contenido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estatus)
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Acciones
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a asp-page="./Edit" class="dropdown-item" asp-route-id="@item.Id">Edit</a></li>
+                        <li><a asp-page="./Delete" class="dropdown-item" asp-route-id="@item.Id">Delete</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

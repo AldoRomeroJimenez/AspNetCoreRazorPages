@@ -1,0 +1,110 @@
+﻿@page
+@model AspNetCoreIdentity.Areas.RH.Pages.Employee.DeleteModel
+@{
+    ViewData["Title"] = "Eliminar Empleado";
+}
+
+<h1>Eliminar</h1>
+
+<h3>¿Estas Seguro De Eliminar Este Empleado?</h3>
+
+<table id="datatablesSimple">
+    <thead>
+        <tr>Propiedades</tr>
+    </thead>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empleado.Nomina)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empleado.Nomina)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empleado.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empleado.Nombre)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empleado.ApellidoPaterno)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empleado.ApellidoPaterno)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empleado.ApellidoMaterno)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empleado.ApellidoMaterno)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empleado.RFC)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empleado.RFC)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empleado.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empleado.Direccion)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empleado.CodigoPostal)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empleado.CodigoPostal)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empleado.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empleado.Estado)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empleado.Pais)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empleado.Pais)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empleado.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empleado.Telefono)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Empleado.CorreoInstitucion)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Empleado.CorreoInstitucion)
+        </td>
+    </tr>
+</table>
+<p></p>
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" asp-for="Empleado.Id" />
+    <input type="submit" value="Eliminar" class="btn btn-danger" />
+    <a class="btn btn-dark" asp-page="Index">Regresar</a>
+</form>

@@ -1,0 +1,86 @@
+﻿@page
+@model AspNetCoreIdentity.Pages.Costumers.DeleteModel
+
+@{
+    ViewData["Title"] = "Eliminar Cliente";
+}
+<h1>Eliminar</h1>
+
+<h3>¿Estas Seguro De Eliminar Este Cliente?</h3>
+
+<table id="datatablesSimple">
+    <thead>
+        <tr>Propiedades</tr>
+    </thead>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Cliente.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Cliente.Nombre)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Cliente.RFC)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Cliente.RFC)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Cliente.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Cliente.Direccion)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Cliente.CodigoPostal)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Cliente.CodigoPostal)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Cliente.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Cliente.Estado)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Cliente.Pais)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Cliente.Pais)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Cliente.Telefono1)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Cliente.Telefono1)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Cliente.Telefono2)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Cliente.Telefono2)
+        </td>
+    </tr>
+</table>
+<p></p>
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" asp-for="Cliente.Id" />
+    <input type="submit" value="Eliminar" class="btn btn-danger" />
+    <a class="btn btn-dark" asp-page="Index">Regresar</a>
+</form>

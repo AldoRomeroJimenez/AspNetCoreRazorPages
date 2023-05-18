@@ -1,0 +1,150 @@
+﻿@page
+@model AspNetCoreIdentity.Pages.Vendors.EditModel
+
+@{
+    ViewData["Title"] = "Editar Proveedor";
+}
+
+<div class="col-lg-10">
+    <div class="card shadow-lg border-0 rounded-lg mt-5">
+        <div class="card-header">
+            <h3 class="text-center font-weight-light my-4">Registrar Proveedor</h3>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Proveedor.Id" />
+                <input type="hidden" asp-for="Proveedor.Estatus" />
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Proveedor.Nombre" class="form-control" />
+                            <label asp-for="Proveedor.Nombre" class="control-label"></label>
+                            <span asp-validation-for="Proveedor.Nombre" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Proveedor.RFC" class="form-control" />
+                            <label asp-for="Proveedor.RFC" class="control-label"></label>
+                            <span asp-validation-for="Proveedor.RFC" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Proveedor.Email" class="form-control" />
+                            <label asp-for="Proveedor.Email" class="control-label"></label>
+                            <span asp-validation-for="Proveedor.Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Proveedor.Direccion" class="form-control" />
+                            <label asp-for="Proveedor.Direccion" class="control-label"></label>
+                            <span asp-validation-for="Proveedor.Direccion" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-floating">
+                            <input asp-for="Proveedor.Cp" class="form-control" />
+                            <label asp-for="Proveedor.Cp" class="control-label"></label>
+                            <span asp-validation-for="Proveedor.Cp" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <select asp-for="PaisId" asp-items="Model.Paises" class="form-control">
+                                <option value="">Selecciona Pais</option>
+                            </select>
+                            <label for="Em">Selecciona Pais</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <select asp-for="EstadoId" asp-items="Model.Edos" class="form-control">
+                            </select>
+                            <label for="Em">Selecciona Estado</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <select asp-for="MunicipioId" asp-items="Model.Municipios" class="form-control">
+                            </select>
+                            <label for="Em">Selecciona Municipio</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Proveedor.Telefono" class="form-control" />
+                            <label asp-for="Proveedor.Telefono" class="control-label"></label>
+                            <span asp-validation-for="Proveedor.Telefono" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input asp-for="Proveedor.Contacto" class="form-control" />
+                            <label asp-for="Proveedor.Contacto" class="control-label"></label>
+                            <span asp-validation-for="Proveedor.Contacto" class="text-danger"></span>
+                        </div>
+                    </div>
+                    @if (Model.Proveedor.Estatus.Equals(0))
+                    {
+                        <div class="col-md-4">
+                            <div class="form-floating mb-3 mb-md-0">
+                                <select asp-for="EstatusId" class="form-control">
+                                    <option value="1">Reactivar</option>
+                                    <option value="0">No</option>
+                                </select>
+                                <label for="Em">Activar</label>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="mt-4 mb-0">
+                    <button type="submit" class="btn btn-primary">Modificar Proveedor</button>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer text-center py-3">
+            <div class="align-content-lg-start">
+                <a class="btn btn-dark" asp-page="Index">Regresar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(function () {
+            $("#PaisId").on("change", function () {
+                var paisId = $(this).val();
+                $("#EstadoId").empty();
+                $("#EstadoId").append("<option value=''>Selecciona Estado</option>");
+                $.getJSON(`?handler=Estados&paisId=${paisId}`, (data) => {
+                    $.each(data, function (i, item) {
+                        $("#EstadoId").append(`<option value="${item.estadoId}">${item.descripcion}</option>`);
+                    });
+                });
+            });
+        });
+
+        $(function () {
+            $("#EstadoId").on("change", function () {
+                var estadoId = $(this).val();
+                $("#MunicipioId").empty();
+                $("#MunicipioId").append("<option value=''>Selecciona Municipio</option>");
+                $.getJSON(`?handler=Municipios&estadoId=${estadoId}`, (data) => {
+                    $.each(data, function (i, item) {
+                        $("#MunicipioId").append(`<option value="${item.municipioId}">${item.descripcion}</option>`);
+                    });
+                });
+            });
+        });
+    </script>
+}

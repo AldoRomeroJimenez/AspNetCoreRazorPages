@@ -1,0 +1,97 @@
+﻿@page
+@model AspNetCoreIdentity.Pages.Management.Users.EditModel
+@{
+    ViewData["Title"] = "Editar Usuario";
+}
+<div class="col-lg-7">
+    <div class="card shadow-lg border-0 rounded-lg mt-5">
+        <div class="card-header"><h3 class="text-center font-weight-light my-4">Editar Usuario</h3></div>
+        <div class="card-body">
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input type="hidden" asp-for="Model.Id"/>
+                            <input type="text" asp-for="Model.Name" class="form-control" />
+                            <label asp-for="Model.Name">Nombre</label>
+                            <span asp-validation-for="Model.Name" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" asp-for="Model.LastName" class="form-control" />
+                            <label asp-for="Model.Name">Apellido</label>
+                            <span asp-validation-for="Model.LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input type="text" asp-for="Model.UserName" class="form-control" />
+                            <label class="form-label" asp-for="Model.UserName">Nombre de usuario</label>
+                            <span asp-validation-for="Model.UserName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="tel" asp-for="Model.PhoneNumber" class="form-control" />
+                            <label class="form-label" asp-for="Model.PhoneNumber">Telefono</label>
+                            <span asp-validation-for="Model.PhoneNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 mb-0">
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                    <a class="btn btn-dark" asp-page="Index">Regresar</a>
+                </div>
+
+                <hr />
+                <h3>Roles</h3>
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>
+                                Roles
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Model.Roles.Count; i++)
+                        {
+                            <tr>
+                                <td>
+                                    @Model.Model.Roles[i]
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a class="btn btn-primary" asp-page="EditRolesInUser" asp-route-id="@Model.Model.Id">Editar Roles</a>
+                <hr />
+                <h3>Claims</h3>
+                <table id="datatablesSimple">
+                    <thead>
+                        <tr>
+                            <th>
+                                Claims
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Model.Claims.Count; i++)
+                        {
+                            <tr>
+                                <td>
+                                    @Model.Model.Claims[i]
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a class="btn btn-primary" asp-route-id="@Model.Model.Id">Editar Claims</a>
+            </form>
+        </div>        
+    </div>
+</div>

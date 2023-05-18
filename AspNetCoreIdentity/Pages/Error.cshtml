@@ -1,0 +1,31 @@
+﻿@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<div id="layoutError_content">
+    <main>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="text-center mt-4">
+                        @if (Model.Error == 404)
+                        {
+                            <img class="mb-4 img-error" src="~/dashboard/assets/img/error-404-monochrome.svg" />
+                        }
+                        else
+                        {
+                            <h1 class="display-1">@Model.Error</h1>
+                        }
+                        <p class="lead">@Model.Message</p>
+                        <a asp-page="Index">
+                            <i class="fas fa-arrow-left me-1"></i>
+                            Regresar al inicio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
